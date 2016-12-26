@@ -1,0 +1,11 @@
+influxdb:
+  image: influxdb/influxdb:latest
+grafana:
+  image: grafana/grafana:latest
+  links:
+    - influxdb
+  ports:
+    - "3000:3000"
+  volumes:
+    - ./dist:/var/lib/grafana/plugins/amplitude-datasource
+    - /Users/akessinger/code/datadog-datasource/dist:/var/lib/grafana/plugins/datadog-datasource

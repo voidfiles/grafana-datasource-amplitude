@@ -1,0 +1,37 @@
+<query-editor-row query-ctrl="ctrl" has-text-edit-mode="true">
+
+  <div class="gf-form" ng-if="ctrl.target.rawQuery">
+    <input type="text" class="gf-form-input" ng-model="ctrl.target.query" spellcheck="false" ng-blur="ctrl.refresh()"></input>
+  </div>
+
+
+  <div ng-if="!ctrl.target.rawQuery">
+
+    <div class="gf-form-inline">
+      <div class="gf-form">
+        <label class="gf-form-label query-keyword width-7">EVENT</label>
+        <metric-segment segment="ctrl.eventSegment" get-options="ctrl.getEvents()" on-change="ctrl.eventChanged()"></metric-segment>
+      </div>
+    </div>
+
+    <div class="gf-form-inline">
+      <div class="gf-form">
+        <label class="gf-form-label query-keyword width-7">
+          PROP
+        </label>
+        <input type="text" class="gf-form-input" ng-model="ctrl.target.uniquePropCount" spellcheck='false' placeholder="Unique Groups" ng-blur="ctrl.refresh()">
+      </div>
+    </div>
+
+    <div class="gf-form-inline">
+      <div class="gf-form">
+        <label class="gf-form-label query-keyword width-7">
+          ALIAS
+        </label>
+        <input type="text" class="gf-form-input" ng-model="ctrl.target.alias" spellcheck='false' placeholder="Alias" ng-blur="ctrl.refresh()">
+      </div>
+    </div>
+
+  </div>
+
+</query-editor-row>
